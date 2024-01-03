@@ -1,6 +1,8 @@
 package main
 
 import (
+	"log"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/kazimovzaman2/auth-jwt/database"
@@ -11,4 +13,6 @@ func main() {
 	app.Use(cors.New())
 
 	database.ConnectDB()
+
+	log.Fatal(app.Listen(":3000"))
 }
